@@ -34,7 +34,7 @@ var set_wmclass = exports.set_wmclass = function(wmclass, crawl, pid) {
         try_parent = function(pid) {
             ppid(pid, function(error, ppid, stderr) {
                 try_pid(pid);
-            }
+            });
         };
 
         try_pid(pid, try_parent);
