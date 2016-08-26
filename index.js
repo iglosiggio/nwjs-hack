@@ -8,7 +8,7 @@ function get_wid(pid, cb) {
     exec('wmctrl -lp | grep ' + pid + ' | cut -d \' \' -f1', cb);
 }
 
-function set_wmclass(class, crawl, pid) {
+function set_wmclass(wmclass, crawl, pid) {
     crawl = crawl || false;
     pid   = proc  || process.pid;
 
@@ -16,12 +16,12 @@ function set_wmclass(class, crawl, pid) {
     if(crawl) {
         get_ppid(pid, function(error, ppid, stderr) {
             get_wid(ppid, function(error, wid, stderr) {
-                exec('xprop -id' + wid + ' -f WM_CLASS 8s -set WM_CLASS ' + class);
+                exec('xprop -id' + wid + ' -f WM_CLASS 8s -set WM_CLASS ' + wmclass);
             });
         });
     } else {
         get_wid(pid, function(error, wid, stderr) {
-            exec('xprop -id' + wid + ' -f WM_CLASS 8s -set WM_CLASS ' + class);
+            exec('xprop -id' + wid + ' -f WM_CLASS 8s -set WM_CLASS ' + wmclass);
         });
     }
 }
