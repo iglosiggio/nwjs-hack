@@ -1,3 +1,5 @@
+/* Por favor no mirar este código ni usarlo, es un gran y horrible hack */
+
 var exec = require('child_process').exec;
 
 var ppid = exports.ppid = function(pid, cb) {
@@ -26,7 +28,7 @@ var set_wmclass = exports.set_wmclass = function(wmclass, crawl, pid) {
                     return errorcb(pid);
                 }
 
-                exec('xprop -id' + wid + ' -f WM_CLASS 8s -set WM_CLASS ' + wmclass);
+                exec('xprop -id ' + wid + ' -f WM_CLASS 8s -set WM_CLASS ' + wmclass);
             });
         };
 
