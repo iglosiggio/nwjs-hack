@@ -1,0 +1,27 @@
+{
+  "name": "nwjs-hack",
+  "version": "0.1.0",
+  "description": "A hack for setting the WM_CLASS of a nw.js (or similar) non linux-loving environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iglosiggio/nwjs-hack.git"
+  },
+  "keywords": [
+    "nwjs",
+    "native",
+    "hack",
+    "donotuse",
+    "x11",
+    "linux"
+  ],
+  "author": "Ignacio E. Losiggio",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/iglosiggio/nwjs-hack/issues"
+  },
+  "homepage": "https://github.com/iglosiggio/nwjs-hack#readme"
+}
