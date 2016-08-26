@@ -2,12 +2,16 @@ var exec = require('child_process').exec;
 
 var ppid = exports.ppid = function(pid, cb) {
     pid = pid || process.pid;
-    exec('ps hoppid ' + pid, cb);
+    exec('ps hoppid ' + pid, function(error, ppid, stderr) {
+        cb(error, Number.parseInt(ppid), stderr);
+    });
 };
 
 var wid = exports.wid = function(pid, cb) {
     pid = pid || process.pid;
-    exec('wmctrl -lp | grep ' + pid + ' | cut -d \' \' -f1', cb);
+    exec('wmctrl -lp | grep ' + pid + ' | cut -d \' \' -f1', function(error, wid, stderr) {
+        cb(error, Number.parseInt(wid), stderr);
+    });
 };
 
 var set_wmclass = exports.set_wmclass = function(wmclass, crawl, pid) {
