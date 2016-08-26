@@ -1,14 +1,14 @@
 var exec = require('child_process').exec;
 
-function get_ppid(pid, cb) {
+exports.ppid = function(pid, cb) {
     exec('ps hoppid ' + pid, cb);
-}
+};
 
-function get_wid(pid, cb) {
+exports.wid = function(pid, cb) {
     exec('wmctrl -lp | grep ' + pid + ' | cut -d \' \' -f1', cb);
-}
+};
 
-function set_wmclass(wmclass, crawl, pid) {
+exports.setwmclass = function(wmclass, crawl, pid) {
     crawl = crawl || false;
     pid   = proc  || process.pid;
 
@@ -24,10 +24,4 @@ function set_wmclass(wmclass, crawl, pid) {
             exec('xprop -id' + wid + ' -f WM_CLASS 8s -set WM_CLASS ' + wmclass);
         });
     }
-}
-
-exports = {
-    ppid: get_ppid,
-    wid:  get_wid,
-    set_wmclass: set_wmclass
 };
