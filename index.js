@@ -22,7 +22,7 @@ var set_wmclass = exports.set_wmclass = function(wmclass, crawl, pid) {
         /* Intento conseguir y usar alguna ventana con este pid o llamo al error handler */
         try_pid = function(pid, errorcb) {
             wid(pid, function(error, wid, stderr) {
-                if(wid === NaN || typeof(wid) !== 'number') {
+                if(isNaN(wid) || typeof(wid) !== 'number') {
                     return errorcb(pid);
                 }
 
