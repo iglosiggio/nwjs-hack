@@ -1,5 +1,13 @@
 /* Por favor no mirar este código ni usarlo, es un gran y horrible hack */
 
+if(process.platform !== 'linux') {
+    function dummy() {}
+    exports.ppid = dummy;
+    exports.wid = dummy;
+    exports.set_wmclass = dummy;
+    return;
+}
+
 var exec = require('child_process').exec;
 
 var ppid = exports.ppid = function(pid, cb) {
